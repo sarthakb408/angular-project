@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'angular-project';
+  photo = 'https://www.emodal.com/images/hero-banner.png';
 }
