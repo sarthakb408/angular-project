@@ -11,7 +11,7 @@
       <span class="fa fa-lock"></span>
       <input type="password" placeholder="Password">
     </div>
-    <button>Log in</button>
+    <button routerLink="/home" >Log in</button>
     <div class="or">Or</div>
     <div class="icon-button">  
       <span class="facebook"><i class="fa fa-facebook"></i>  Facebook</span>
@@ -20,8 +20,9 @@
   </form>
   </div>
 </div>
-<img class="emodal-logo" src="assets\images\emodal-logo.png" alt="">
+<div class="container"><img class="emodal-logo" src="assets\images\emodal-logo.png" alt="">
+</div>
 <img class="background-image " src="https://www.emodal.com/images/hero-banner.png" alt="">
 
-
+<router-outlet></router-outlet>
 
