@@ -1,0 +1,119 @@
+<div class="container-fluid">
+    <button class="btn btn-success btn-lg mt-3" style="float: right;" (click)="open(content, false)">Add Data</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Date of Birth</th>
+            <th scope="col">Current Address</th>
+            <th scope="col">Permenant Address</th>
+            <th scope="col">Email Id</th>
+            <th scope="col">Phone</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let receiveData of receiveCustomersData">
+            <th scope="row">{{receiveData.id}}</th>
+            <td>{{receiveData.first_name}}</td>
+            <td>{{receiveData.last_name}}</td>
+            <td>{{receiveData.date_of_birth}}</td>
+            <td>{{receiveData.current_address.houseno}}, {{receiveData.current_address.street}}, {{receiveData.current_address.city}}, {{receiveData.current_address.zipcode}}</td>
+            <td>{{receiveData.permenant_address.houseno}}, {{receiveData.permenant_address.street}}, {{receiveData.permenant_address.city}}, {{receiveData.permenant_address.zipcode}}</td>
+            <td>{{receiveData.email}}</td>
+            <td>{{receiveData.phone_number}}</td>
+            <td><button class="btn btn-primary btn-sm" (click)="open(content, receiveData)">Edit</button></td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+        </tr>
+</table>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="!formIsNew">Update Data</h4>
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="formIsNew">Insert Data</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="CustomerFormData()">
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>First Name</label>
+                    <input type="text" class="form-control" formControlName="FirstName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Last Name</label>
+                    <input type="text" class="form-control" formControlName="LastName">
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Birth Date</label>
+                <input type="date" class="form-control" formControlName="Birthdate">
+            </div><br>
+            <div class="form-group">
+                <label>Current Address</label>
+                <input type="text" class="form-control" formControlName="CurrentAddress">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>House Number</label>
+                    <input type="text" class="form-control" formControlName="CurrenthouseNo">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="CurrentCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>State</label>
+                    <input type="text" class="form-control" formControlName="CurrentState">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Zip</label>
+                    <input type="text" class="form-control" formControlName="CurrentZip">
+                </div>
+            </div><br><br>
+            <div class="form-group">
+                <label>Parmanent Address</label>
+                <input type="text" class="form-control" formControlName="ParmanentAddress">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>House Number</label>
+                    <input type="text" class="form-control" formControlName="ParmanenthouseNo">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="ParmanentCity">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>State</label>
+                    <input type="text" class="form-control" formControlName="ParmanentState">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Zip</label>
+                    <input type="text" class="form-control" formControlName="ParmanentZip">
+                </div>
+            </div><br>
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>Email</label>
+                    <input type="email" class="form-control" formControlName="Email">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Phone Number</label>
+                    <input type="text" class="form-control" formControlName="PhoneNumber">
+                </div>
+            </div><br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-danger" *ngIf="!formIsNew">Delete</button>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </form>
+    </div>
+
+</ng-template>

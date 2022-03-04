@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark  bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light  bg-light">
     <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
+        <img class="advent-logo-nav" src="\assets\images\advent-logo.png" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -8,40 +8,24 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    <h4 class="nav-link " aria-current="page" href="#">Home</h4>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
+                    <h4 class="nav-link" href="#">About Us</h4>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                        data-bs-toggle="dropdown" aria-expanded="false">
-                        Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="#">Action</a></li>
-                        <li><a class="dropdown-item" href="#">Another action</a></li>
-                        <li>
-                            <hr class="dropdown-divider">
-                        </li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled">Disabled</a>
-                </li>
+
             </ul>
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
+            
+                <h5 class="nav-username">@username</h5>
+            <button class="btn btn-outline-success" type="submit">Logout</button>
+        
         </div>
     </div>
 </nav>
 
 <div class="row">
     <div class="col-sm-2">
-        <div class="card">
+        <div routerLink="/customers" class="card">
             <div class="card-body">
                 <img class="image" src="assets\images\customers-image.png" alt="Customers">
                 <h2 class="card-title">Customers</h2>
@@ -49,7 +33,7 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <div class="card">
+        <div routerLink="/products" class="card">
             <div class="card-body">
                 <img class="image" src="assets\images\products-image.png" alt="Products">
                 <h2 class="card-title">Products</h2>
@@ -57,7 +41,7 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <div class="card">
+        <div routerLink="/buyers" class="card">
             <div class="card-body">
                 <img class="image" src="assets\images\buyers-image.png" alt="Products">
                 <h2 class="card-title">Buyers</h2>
@@ -65,7 +49,7 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <div class="card">
+        <div routerLink="/sellers" class="card">
             <div class="card-body">
                 <img class="image" src="assets\images\sellers-image.png" alt="Products">
                 <h2 class="card-title">Sellers</h2>
@@ -73,14 +57,20 @@
         </div>
     </div>
     <div class="col-sm-2">
-        <div class="card">
+        <div routerLink="/services" class="card">
             <div class="card-body">
-                <img class="image" src="assets\images\products-image.png" alt="Products">
+                <img class="image" src="assets\images\services-images.png" alt="Products">
                 <h2 class="card-title">Services</h2>
             </div>
         </div>
     </div>
 </div>
 
+<<<<<<< HEAD
 
+
+
+<div style="display: none;">
+    <app-customers></app-customers>
+</div>
 

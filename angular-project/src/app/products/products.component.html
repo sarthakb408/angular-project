@@ -1,0 +1,86 @@
+<div class="container-fluid">
+    <button class="btn btn-success btn-lg mt-3" style="float: right;" (click)="open(content, false)">Add Data</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Category</th>
+            <th scope="col">Product Description</th>
+            <th scope="col">Units Available</th>
+            <th scope="col">Height</th>
+            <th scope="col">Width</th>
+            <th scope="col">Price</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Edit</th>
+            <th scope="col">Remove</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let receiveData of receiveProductsData">
+            <th scope="row">{{receiveData.product_id}}</th>
+            <td>{{receiveData.product_name}}</td>
+            <td>{{receiveData.product_category}}</td>
+            <td>{{receiveData.product_description}}</td>
+            <td>{{receiveData.units_available}}</td>
+            <td>{{receiveData.height}}</td>
+            <td>{{receiveData.width}}</td>
+            <td>${{receiveData.price}}</td>
+            <td>{{receiveData.rating}}</td>
+            <td><button class="btn btn-primary btn-sm" (click)="open(content, receiveData)">Edit</button></td>
+            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+        </tr>
+</table>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="!formIsNew">Update Data</h4>
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="formIsNew">Insert Data</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="CustomerFormData()">
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>Product Name</label>
+                    <input type="text" class="form-control" formControlName="ProductName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Product Category</label>
+                    <input type="text" class="form-control" formControlName="ProductCategory">
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <label>Product Description</label>
+                <input type="text" class="form-control" formControlName="ProductDescriptione">
+            </div><br>
+            <div class="form-group">
+                <label>Units Available</label>
+                <input type="number" class="form-control" formControlName="UnitAvailable">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>Height</label>
+                    <input type="number " class="form-control" formControlName="Height">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Width</label>
+                    <input type="number" class="form-control" formControlName="Width">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>Price</label>
+                    <input type="text" class="form-control" formControlName="Price">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Rating</label>
+                    <input type="number" class="form-control" formControlName="Rating">
+                </div>
+            </div><br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</ng-template>
