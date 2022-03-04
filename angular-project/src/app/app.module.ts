@@ -14,6 +14,7 @@ import { SellersComponent } from './sellers/sellers.component';
 import { ServicesComponent } from './services/services.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TablesListMenuComponent } from './tables-list-menu/tables-list-menu.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     ProductsComponent,
     BuyersComponent,
     SellersComponent,
-    ServicesComponent
+    ServicesComponent,
+    TablesListMenuComponent
   ],
   imports: [
     BrowserModule,

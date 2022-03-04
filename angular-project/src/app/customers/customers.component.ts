@@ -15,6 +15,7 @@ export class CustomersComponent implements OnInit {
 
   customerList: any;
   myForm: any;
+  updatedFormData:any;
   formIsNew = false;
   emptyForm = {
     "first_name": "",
@@ -42,6 +43,7 @@ export class CustomersComponent implements OnInit {
 
 
     this.myForm = this.fb.group({
+      Id: [""],
       FirstName: ['', Validators.required],
       LastName: ['', Validators.required],
       Birthdate: ['', Validators.required],
@@ -63,12 +65,66 @@ export class CustomersComponent implements OnInit {
 
   CustomerFormData() {
     console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "first_name": this.myForm.value.FirstName,
+    "last_name": this.myForm.value.LastName,
+    "date_of_birth": this.myForm.value.Birthdate,
+    "current_address": {
+      "houseno": this.myForm.value.CurrenthouseNo,
+      "street": this.myForm.value.CurrentAddress,
+      "city": this.myForm.value.CurrentCity,
+      "zipcode": this.myForm.value.CurrentZip
+    },
+    "permenant_address": {
+      "houseno": this.myForm.value.ParmanenthouseNo,
+      "street": this.myForm.value.ParmanentAddress,
+      "city": this.myForm.value.ParmanentCity,
+      "zipcode": this.myForm.value.ParmanentZip
+    },
+    "email": this.myForm.value.Email,
+    "phone_number": this.myForm.value.PhoneNumber
+    }
+
+    console.log(this.updatedFormData);
+
+    this.ht.putCustomersData(this.updatedFormData).subscribe((data) => console.log(data));
   }
 
- 
+  postCustomerFormData(){
+    console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "first_name": this.myForm.value.FirstName,
+    "last_name": this.myForm.value.LastName,
+    "date_of_birth": this.myForm.value.Birthdate,
+    "current_address": {
+      "houseno": this.myForm.value.CurrenthouseNo,
+      "street": this.myForm.value.CurrentAddress,
+      "city": this.myForm.value.CurrentCity,
+      "zipcode": this.myForm.value.CurrentZip
+    },
+    "permenant_address": {
+      "houseno": this.myForm.value.ParmanenthouseNo,
+      "street": this.myForm.value.ParmanentAddress,
+      "city": this.myForm.value.ParmanentCity,
+      "zipcode": this.myForm.value.ParmanentZip
+    },
+    "email": this.myForm.value.Email,
+    "phone_number": this.myForm.value.PhoneNumber
+    }
+
+
+    console.log(this.updatedFormData);
+
+    this.ht.postCustomerData(this.updatedFormData).subscribe((data) => console.log(data));
+  }
+
+
   objectToFormData(objData: any) {
-  
+
     this.myForm.setValue({
+      Id: objData.id,
       FirstName: objData.first_name,
       LastName: objData.last_name,
       Birthdate: objData.date_of_birth,
@@ -84,9 +140,7 @@ export class CustomersComponent implements OnInit {
       ParmanentZip: objData.permenant_address.zipcode,
       Email: objData.email,
       PhoneNumber: objData.phone_number,
-
-    });
- 
+    })
   }
 
   closeResult = '';
@@ -110,11 +164,13 @@ export class CustomersComponent implements OnInit {
     }
 
   }
-  
+
   show(customersData: any) {
     this.receiveCustomersData = customersData;
   }
+
 }
+
 
 
 

@@ -1,5 +1,6 @@
 <div class="container-fluid">
-    <button class="btn btn-success btn-lg mt-3" style="float: right;">Add Data</button>
+    <app-tables-list-menu></app-tables-list-menu>
+    <button class="btn btn-success mt-3" style="float: right;" (click)="open(content, false)">Add Seller Data</button>
 </div>
 <table class="table table-striped">
     <thead>
@@ -22,11 +23,65 @@
             <td>{{receiveData.seller_address.street}}, {{receiveData.seller_address.city}}, {{receiveData.seller_address.suite}}, {{receiveData.seller_address.zipcode}}</td>
             <td>{{receiveData.phone}}</td>
             <td>{{receiveData.website}}</td>
-            <td><button class="btn btn-primary btn-sm">Edit</button></td>
+            <td><button class="btn btn-primary btn-sm" (click)="open(content, receiveData)">Edit</button></td>
             <td><button class="btn btn-danger btn-sm">Remove</button></td>
         </tr>
 </table>
 
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="!formIsNew">Update Data</h4>
+        <h4 class="modal-title" id="modal-basic-title" *ngIf="formIsNew">Insert Data</h4>
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body">
+        <form [formGroup]="myForm" (ngSubmit)="CustomerFormData()">
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>Seller Name</label>
+                    <input type="text" class="form-control" formControlName="SellerName">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Seller Email</label>
+                    <input type="email" class="form-control" formControlName="SellerEmail">
+                </div>
+            </div><br>
+            <div class="form-group">
+                <label>Seller Address</label>
+                <input type="text" class="form-control" formControlName="SellerAddress">
+            </div>
+            <div class="form-row row">
+                <div class="form-group col-md-2">
+                    <label>Suite</label>
+                    <input type="text" class="form-control" formControlName="SellerSuite">
+                </div>
+                <div class="form-group col-md-4">
+                    <label>City</label>
+                    <input type="text" class="form-control" formControlName="SellerCity">
+                </div>
+                <div class="form-group col-md-2">
+                    <label>Zip</label>
+                    <input type="text" class="form-control" formControlName="SellerZip">
+                </div>
+            </div><br>
+            <div class="form-row row">
+                <div class="form-group col-md-6">
+                    <label>Phone Number</label>
+                    <input type="tel" class="form-control" formControlName="PhoneNumber">
+                </div>
+                <div class="form-group col-md-6">
+                    <label>Website</label>
+                    <input type="text" class="form-control" formControlName="Website">
+                </div>
+            </div><br>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </div>
+        </form>
+    </div>
+
+</ng-template>
 <!-- "id": 1,
     "seller_name": "Leanne Graham",
     "seller_email": "Sincere@april.biz",
