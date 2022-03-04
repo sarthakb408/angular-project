@@ -86,6 +86,46 @@
       },
       "email": "Julianne.OConner@kory.org",
       "phone_number": "14631234447"
+    },
+    {
+      "id": 5,
+      "first_name": "Peter",
+      "last_name": "Makaze",
+      "date_of_birth": "1988-02-03",
+      "current_address": {
+        "houseno": "404",
+        "street": "Zip colony",
+        "city": "Zest",
+        "zipcode": "76585"
+      },
+      "permenant_address": {
+        "houseno": "404",
+        "street": "Zip colony",
+        "city": "Zest",
+        "zipcode": "76585"
+      },
+      "email": "theo45@gmail.com",
+      "phone_number": "7575632456"
+    },
+    {
+      "id": 6,
+      "first_name": "Peter",
+      "last_name": "Makaze",
+      "date_of_birth": "1988-02-03",
+      "current_address": {
+        "houseno": "404",
+        "street": "Zip colony",
+        "city": "Zest",
+        "zipcode": "76585"
+      },
+      "permenant_address": {
+        "houseno": "404",
+        "street": "Zip colony",
+        "city": "Zest",
+        "zipcode": "76585"
+      },
+      "email": "theo45@gmail.com",
+      "phone_number": "7575632456"
     }
   ],
   "product": [

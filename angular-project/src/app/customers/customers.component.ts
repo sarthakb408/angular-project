@@ -120,6 +120,11 @@ export class CustomersComponent implements OnInit {
     this.ht.postCustomerData(this.updatedFormData).subscribe((data) => console.log(data));
   }
 
+  deleteCustomer() {
+    this.ht.deleteCustomerData(this.myForm.value.Id).subscribe();
+    this.modalService.dismissAll()
+  }
+
 
   objectToFormData(objData: any) {
 

@@ -28,7 +28,7 @@
             <td>{{receiveData.email}}</td>
             <td>{{receiveData.phone_number}}</td>
             <td><button class="btn btn-primary btn-sm" (click)="open(content, receiveData)">Edit</button></td>
-            <td><button class="btn btn-danger btn-sm">Remove</button></td>
+            <td><button class="btn btn-danger btn-sm" (click)="deleteCustomer()">Remove</button></td>
         </tr>
 </table>
 
