@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataManipulationService } from '../data-manipulation.service';
 
 @Component({
   selector: 'app-sellers',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SellersComponent implements OnInit {
 
-  constructor() { }
+  constructor(public ht: DataManipulationService) { }
+  receiveSellersData: any;
+  ngOnInit() {
+    this.ht.getSellersData().subscribe((sellersData) => this.show(sellersData));
+  }
 
-  ngOnInit(): void {
+  show(sellersData: any) {
+    this.receiveSellersData = sellersData;
   }
 
 }

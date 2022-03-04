@@ -16,4 +16,7 @@ export class DataManipulationService {
   getBuyersData(){
     return this.ht.get("http://localhost:3000/buyer_details");
   }
+  getSellersData(){
+    return this.ht.get("http://localhost:3000/seller_details");
+  }
 }
