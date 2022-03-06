@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { DataManipulationService } from '../data-manipulation.service';
 
 @Component({
@@ -9,6 +9,8 @@ import { DataManipulationService } from '../data-manipulation.service';
 export class ProductsComponent implements OnInit {
 
   constructor(public ht: DataManipulationService) { }
+ 
+  
   receiveProductsData:any;
   ngOnInit() {
     this.ht.getProductsData().subscribe((productsData) => this.show(productsData));
@@ -17,4 +19,7 @@ export class ProductsComponent implements OnInit {
   show(productsData: any) {
     this.receiveProductsData = productsData;
   }
+  
+
+
 }

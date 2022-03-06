@@ -12,4 +12,9 @@ export class SellersComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  flag = false;
+  toggle(){
+
+  }
+
 }

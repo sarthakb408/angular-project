@@ -16,4 +16,17 @@ export class DataManipulationService {
   getBuyersData(){
     return this.ht.get("http://localhost:3000/buyer_details");
   }
+
+
+
+
+  flag=false;
+  toggle(){
+    if(this.flag==false){
+      this.flag=true;
+    }
+    else{
+      this.flag=false;
+    }
+  }
 }

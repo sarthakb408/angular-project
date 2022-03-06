@@ -1,0 +1,22 @@
+*{
+    box-sizing: border-box;
+}
+.list-item{
+    list-style-type: none;
+    width: 100%;
+    padding: 20px;
+    margin: 0px;
+    border: none;
+    background-color: white;
+}
+.list-item:hover{
+    background-color: red;
+    color: white;
+}
+#tables-menu{
+    margin-top: 10px;
+    padding: 0px;
+    border: 1px solid black;
+    width: 150%;
+    position: absolute;
+}
