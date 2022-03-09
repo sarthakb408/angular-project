@@ -1,0 +1,36 @@
+.nav-username{
+    margin-right: 10px;
+  }
+  .nav-link{
+    margin-left: 10px;
+  }
+  .advent-logo-nav{
+    width: 250px;
+  }
+  
+  .row{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-title{
+    text-align: center;
+    border-top: 2px solid gray;
+  }
+  .image{
+    width: 100%;
+    height: 156.87px;
+  }
+  .card:hover{
+    background-color: rgb(157, 230, 75);
+  }
+  .card{
+    border: 3px solid gray;
+  }
+  .cart{
+    margin-left: 20px;
+  }
+  .cart-icon{
+    height: 30px;
+  }

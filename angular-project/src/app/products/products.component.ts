@@ -16,11 +16,14 @@ export class ProductsComponent implements OnInit {
 
   customerList: any;
   myForm: any;
+  data:any;
+  updatedFormData:any;
   formIsNew = false;
   emptyForm = {
+    "id":  Math.floor(Math.random() * 1000000),
     "product_name": "",
     "product_category": "",
-    "dproduct_description": "",
+    "product_description": "",
     "units_available": "",
     "height": "",
     "width": "",
@@ -32,9 +35,10 @@ export class ProductsComponent implements OnInit {
     this.ht.getProductsData().subscribe((productsData) => this.show(productsData));
 
     this.myForm = this.fb.group({
+      Id: [""],
       ProductName: ['', Validators.required],
       ProductCategory: ['', Validators.required],
-      ProductDescriptione: ['', Validators.required],
+      ProductDescription: ['', Validators.required],
       UnitAvailable: ['', Validators.required],
       Height: ['', Validators.required],
       Width: ['', Validators.required],
@@ -43,17 +47,32 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  CustomerFormData() {
+  ProductFormData() {
     console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "product_name": this.myForm.value.ProductName,
+    "product_category": this.myForm.value.ProductCategory,
+      "product_description": this.myForm.value.ProductDescription,
+      "units_available": this.myForm.value.UnitAvailable,
+      "height": this.myForm.value.Height,
+      "width": this.myForm.value.Width,
+    "price": this.myForm.value.Price,
+    "rating": this.myForm.value.Rating
+    }
+    console.log(this.updatedFormData);
+
+    this.ht.putProductsData(this.updatedFormData).subscribe((data) => console.log(data));
   }
 
 
   objectToFormData(objData: any) {
 
     this.myForm.setValue({
+      Id: objData.id,
       ProductName: objData.product_name,
       ProductCategory: objData.product_category,
-      ProductDescriptione: objData.product_description,
+      ProductDescription: objData.product_description,
       UnitAvailable: objData.units_available,
       Height: objData.height,
       Width: objData.width,
@@ -61,6 +80,38 @@ export class ProductsComponent implements OnInit {
       Rating: objData.rating
     });
 
+  }
+
+  postCustomerFormData(){console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "product_name": this.myForm.value.ProductName,
+    "product_category": this.myForm.value.ProductCategory,
+      "product_description": this.myForm.value.ProductDescription,
+      "units_available": this.myForm.value.UnitAvailable,
+      "height": this.myForm.value.Height,
+      "width": this.myForm.value.Width,
+    "price": this.myForm.value.Price,
+    "rating": this.myForm.value.Rating
+    }
+
+    console.log(this.updatedFormData);
+
+    this.ht.postProductsData(this.updatedFormData).subscribe((data) => console.log(data));
+  }
+
+  deleteProduct(data:any){
+    console.log(data);
+    this.ht.deleteProductsData(data.id).subscribe();
+    this.modalService.dismissAll();
+  }
+   
+  cartItems:any;
+  buyItem(data:any){
+    console.log(data);
+    this.cartItems=data;
+    this.cartItems.units_available=1;
+    this.ht.postBuyItemCart(this.cartItems).subscribe((data) => console.log(data));
   }
 
   closeResult = '';

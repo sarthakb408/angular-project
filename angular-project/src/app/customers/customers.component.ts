@@ -18,6 +18,7 @@ export class CustomersComponent implements OnInit {
   updatedFormData:any;
   formIsNew = false;
   emptyForm = {
+    "id": Math.floor(Math.random() * 10000),
     "first_name": "",
     "last_name": "",
     "date_of_birth": "",
@@ -120,8 +121,9 @@ export class CustomersComponent implements OnInit {
     this.ht.postCustomerData(this.updatedFormData).subscribe((data) => console.log(data));
   }
 
-  deleteCustomer() {
-    this.ht.deleteCustomerData(this.myForm.value.Id).subscribe();
+  deleteCustomer(data: any) {
+    console.log(data);
+    this.ht.deleteCustomerData(data.id).subscribe();
     this.modalService.dismissAll()
   }
 

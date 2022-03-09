@@ -1,21 +1,27 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 import { BuyersComponent } from './buyers/buyers.component';
+import { CartComponent } from './cart/cart.component';
 import { CustomersComponent } from './customers/customers.component';
 import { HomeComponent } from './home/home.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { PaymentComponent } from './payment/payment.component';
 import { ProductsComponent } from './products/products.component';
 import { SellersComponent } from './sellers/sellers.component';
 import { ServicesComponent } from './services/services.component';
 
 const routes: Routes = [
-  {path:'home',component:HomeComponent},
-  {path:'customers',component:CustomersComponent},
-  {path:'products',component:ProductsComponent},
-  {path:'buyers',component:BuyersComponent},
-  {path:'sellers',component:SellersComponent},
-  {path:'services',component:ServicesComponent},
-  {path:'',component:LoginPageComponent}
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'customers', component: CustomersComponent, canActivate: [AuthGuard] },
+  { path: 'products', component: ProductsComponent, canActivate: [AuthGuard] },
+  { path: 'buyers', component: BuyersComponent, canActivate: [AuthGuard] },
+  { path: 'sellers', component: SellersComponent,canActivate: [AuthGuard] },
+  { path: 'services', component: ServicesComponent,canActivate: [AuthGuard] },
+  { path: 'cart', component: CartComponent ,canActivate: [AuthGuard]},
+  { path: 'payment', component: PaymentComponent,canActivate: [AuthGuard] },
+  { path: '', component: LoginPageComponent },
+  { path: 'login', component: LoginPageComponent }
 ];
 
 @NgModule({

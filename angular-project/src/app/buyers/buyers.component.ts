@@ -17,7 +17,9 @@ export class BuyersComponent implements OnInit {
   customerList: any;
   myForm: any;
   formIsNew = false;
+  updatedFormData:any;
   emptyForm = {
+    "id":  Math.floor(Math.random() * 1000000),
     "buyer_name": "",
     "buyer_email": "",
     "buyer_address": {
@@ -40,6 +42,7 @@ export class BuyersComponent implements OnInit {
 
 
     this.myForm = this.fb.group({
+      Id: [""],
       BuyerName: ['', Validators.required],
       BuyerEmail: ['', Validators.required],
       BuyerAddress: ['', Validators.required],
@@ -54,14 +57,65 @@ export class BuyersComponent implements OnInit {
     });
   }
 
-  CustomerFormData() {
+  BuyerFormData() {
     console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "buyer_name": this.myForm.value.BuyerName,
+    "buyer_email": this.myForm.value.BuyerEmail,
+      "buyer_address": {
+        "street":this.myForm.value.BuyerAddress,
+        "suite":this.myForm.value.BuyerSuite,
+        "city":this.myForm.value.BuyerCity,
+        "zipcode":this.myForm.value.BuyerZip,
+      },
+      "phone": this.myForm.value.PhoneNumber,
+      "website": this.myForm.value.Website,
+      "company": {
+        "name":this.myForm.value.CompanyName,
+    "catchPhrase": this.myForm.value.CatchPhrase
+      }
+    }
+    console.log(this.updatedFormData);
+
+    this.ht.putBuyersData(this.updatedFormData).subscribe((data) => console.log(data));
   }
 
+  postBuyerFormData(){
+    console.log(this.myForm.value);
+    this.updatedFormData = {
+      "id": this.myForm.value.Id,
+      "buyer_name": this.myForm.value.BuyerName,
+    "buyer_email": this.myForm.value.BuyerEmail,
+      "buyer_address": {
+        "street":this.myForm.value.BuyerAddress,
+        "suite":this.myForm.value.BuyerSuite,
+        "city":this.myForm.value.BuyerCity,
+        "zipcode":this.myForm.value.BuyerZip,
+      },
+      "phone": this.myForm.value.PhoneNumber,
+      "website": this.myForm.value.Website,
+      "company": {
+        "name":this.myForm.value.CompanyName,
+    "catchPhrase": this.myForm.value.CatchPhrase
+      }
+    }
+    console.log(this.updatedFormData);
+
+    this.ht.postBuyersData(this.updatedFormData).subscribe((data) => console.log(data));
+  }
+
+
+  deleteBuyer(data:any){
+    console.log(data);
+    this.ht.deleteBuyersData(data.id).subscribe();
+    this.modalService.dismissAll()
+  }
 
   objectToFormData(objData: any) {
 
     this.myForm.setValue({
+      Id: objData.id,
       BuyerName: objData.buyer_name,
       BuyerEmail: objData.buyer_email,
       BuyerAddress: objData.buyer_address.street,
