@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener, ElementRef, ViewChild } from '@angular/core';
 import { DataManipulationService } from '../data-manipulation.service';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
@@ -12,6 +12,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class ProductsComponent implements OnInit {
 
+<<<<<<< HEAD
+  constructor(public ht: DataManipulationService) { }
+ 
+  
+  receiveProductsData:any;
+=======
   constructor(public ht: DataManipulationService, private modalService: NgbModal, private fb: FormBuilder) { }
 
   customerList: any;
@@ -31,6 +37,7 @@ export class ProductsComponent implements OnInit {
     "rating": "",
   }
   receiveProductsData: any;
+>>>>>>> 9d39076c6a2d133134472b79c5385e25273d36e7
   ngOnInit() {
     this.ht.getProductsData().subscribe((productsData) => this.show(productsData));
 
@@ -138,6 +145,9 @@ export class ProductsComponent implements OnInit {
   show(productsData: any) {
     this.receiveProductsData = productsData;
   }
+  
+
+
 }
 
 

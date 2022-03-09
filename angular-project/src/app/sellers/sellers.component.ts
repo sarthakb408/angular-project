@@ -95,4 +95,9 @@ export class SellersComponent implements OnInit {
     this.receiveSellersData = sellersData;
   }
 
+  flag = false;
+  toggle(){
+
+  }
+
 }

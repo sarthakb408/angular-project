@@ -42,6 +42,7 @@ export class DataManipulationService {
   getBuyersData(){
     return this.ht.get("http://localhost:3000/buyer_details");
   }
+<<<<<<< HEAD
   putBuyersData(data:any) {
     return this.ht.put("http://localhost:3000/buyer_details/"+data.id, data);
   }
@@ -53,8 +54,25 @@ export class DataManipulationService {
   }
 
 
+=======
+<<<<<<< HEAD
+
+
+
+
+  flag=false;
+  toggle(){
+    if(this.flag==false){
+      this.flag=true;
+    }
+    else{
+      this.flag=false;
+    }
+=======
+>>>>>>> 0f1a4fa935f48646f2f9832605e69dc889ba677d
   getSellersData(){
     return this.ht.get("http://localhost:3000/seller_details");
+>>>>>>> 9d39076c6a2d133134472b79c5385e25273d36e7
   }
 
   postBuyItemCart(data:any){
