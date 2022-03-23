@@ -12,16 +12,13 @@ import { ReactiveFormsModule } from '@angular/forms';
 })
 export class ProductsComponent implements OnInit {
 
-<<<<<<< HEAD
-  constructor(public ht: DataManipulationService) { }
- 
-  
   receiveProductsData:any;
-=======
+
   constructor(public ht: DataManipulationService, private modalService: NgbModal, private fb: FormBuilder) { }
 
   customerList: any;
   myForm: any;
+  index:any;
   data:any;
   updatedFormData:any;
   formIsNew = false;
@@ -36,8 +33,8 @@ export class ProductsComponent implements OnInit {
     "price": "",
     "rating": "",
   }
-  receiveProductsData: any;
->>>>>>> 9d39076c6a2d133134472b79c5385e25273d36e7
+
+
   ngOnInit() {
     this.ht.getProductsData().subscribe((productsData) => this.show(productsData));
 
@@ -69,9 +66,13 @@ export class ProductsComponent implements OnInit {
     }
     console.log(this.updatedFormData);
 
-    this.ht.putProductsData(this.updatedFormData).subscribe((data) => console.log(data));
+    this.ht.putProductsData(this.updatedFormData).subscribe((data) => this.updateResult(data));
   }
 
+  updateResult(data:any){
+    this.receiveProductsData[this.index]=data;
+
+  }
 
   objectToFormData(objData: any) {
 
@@ -104,13 +105,18 @@ export class ProductsComponent implements OnInit {
 
     console.log(this.updatedFormData);
 
-    this.ht.postProductsData(this.updatedFormData).subscribe((data) => console.log(data));
+    this.ht.postProductsData(this.updatedFormData).subscribe((data) => this.postData(data));
+  }
+
+  postData(data:any){
+    this.receiveProductsData.push(data);
   }
 
   deleteProduct(data:any){
     console.log(data);
     this.ht.deleteProductsData(data.id).subscribe();
     this.modalService.dismissAll();
+    this.receiveProductsData.splice(this.index,1);
   }
    
   cartItems:any;
@@ -122,7 +128,9 @@ export class ProductsComponent implements OnInit {
   }
 
   closeResult = '';
-  open(content: any, data: any) {
+  open(content: any, data: any, i:any) {
+
+    this.index = i;
 
     this.modalService.open(content, { ariaLabelledBy: 'modal-basic-title', size: 'xl', backdrop: 'static' }).result.then((result) => {
       this.closeResult = `Closed with: ${result}`;

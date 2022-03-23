@@ -2,31 +2,11 @@
   "login_details": [
     {
       "id": 1,
-      "user_name": "admin123",
+      "user_name": "admin",
       "password": "admin123"
     }
   ],
   "customer_details": [
-    {
-      "id": 1,
-      "first_name": "Peter",
-      "last_name": "Smith",
-      "date_of_birth": "14-2-1989",
-      "current_address": {
-        "houseno": "21",
-        "street": "2nd Street",
-        "city": "New York",
-        "zipcode": "10021"
-      },
-      "permenant_address": {
-        "houseno": "35",
-        "street": "8nd Street",
-        "city": "New York",
-        "zipcode": "10021"
-      },
-      "email": "Sincere@april.biz",
-      "phone_number": "2125551234"
-    },
     {
       "id": 2,
       "first_name": "James",
@@ -109,17 +89,6 @@
     }
   ],
   "product": [
-    {
-      "id": 1,
-      "product_name": "Brown eggs",
-      "product_category": "dairy",
-      "product_description": "Raw organic brown eggs in a basket",
-      "units_available": 25,
-      "height": 600,
-      "width": 400,
-      "price": 28.1,
-      "rating": 4
-    },
     {
       "id": 2,
       "product_name": "Sweet fresh stawberry",
@@ -240,13 +209,24 @@
       "width": 903,
       "price": 16.3,
       "rating": 2
+    },
+    {
+      "id": 552534,
+      "product_name": "Brown Eggs",
+      "product_category": "Egg",
+      "product_description": "Na",
+      "units_available": 3,
+      "height": "45",
+      "width": 66,
+      "price": "78",
+      "rating": 4
     }
   ],
   "buyer_details": [
     {
       "id": 1,
       "buyer_name": "Leanne Graham",
-      "buyer_email": "Sincere@april.biz",
+      "buyer_email": "Sincere@april.com",
       "buyer_address": {
         "street": "Kulas Light",
         "suite": "Apt. 556",
@@ -412,6 +392,23 @@
         "name": "Hoeger LLC",
         "catchPhrase": "Centralized empowering task-force"
       }
+    },
+    {
+      "id": 46752,
+      "buyer_name": "Paresg",
+      "buyer_email": "sarthakbhadiyadara408@gmail.com",
+      "buyer_address": {
+        "street": "B-2/408, Royal Township,Valak",
+        "suite": "",
+        "city": "Surat",
+        "zipcode": "395006"
+      },
+      "phone": "07433076266",
+      "website": "",
+      "company": {
+        "name": "",
+        "catchPhrase": ""
+      }
     }
   ],
   "seller_details": [
@@ -548,6 +545,17 @@
   ],
   "cart": [
     {
+      "id": 1,
+      "product_name": "Brown eggs",
+      "product_category": "dairy",
+      "product_description": "Raw organic brown eggs in a basket",
+      "units_available": 1,
+      "height": 600,
+      "width": 400,
+      "price": 28.1,
+      "rating": 4
+    },
+    {
       "id": 3,
       "product_name": "Asparagus",
       "product_category": "vegetable",
@@ -559,6 +567,17 @@
       "rating": 3
     },
     {
+      "id": 4,
+      "product_name": "Green smoothie",
+      "product_category": "dairy",
+      "product_description": "Glass of green smoothie with quail egg's yolk, served with cocktail tube, green apple and baby spinach leaves over tin surface.",
+      "units_available": 1,
+      "height": 600,
+      "width": 399,
+      "price": 17.68,
+      "rating": 4
+    },
+    {
       "id": 5,
       "product_name": "Raw legums",
       "product_category": "vegetable",
@@ -568,6 +587,17 @@
       "width": 299,
       "price": 17.11,
       "rating": 2
+    },
+    {
+      "id": 8,
+      "product_name": "Hazelnut in black ceramic bowl",
+      "product_category": "vegetable",
+      "product_description": "Hazelnut in black ceramic bowl on old wooden background. forest wealth. rustic style. selective focus",
+      "units_available": 1,
+      "height": 450,
+      "width": 301,
+      "price": 27.35,
+      "rating": 0
     }
   ],
   "summary": [
@@ -842,6 +872,78 @@
         "width": 299,
         "price": 17.11,
         "rating": 2
+      }
+    ]
+  ],
+  "history": [
+    [
+      {
+        "id": 3,
+        "product_name": "Asparagus",
+        "product_category": "vegetable",
+        "product_description": "Asparagus with ham on the wooden table",
+        "units_available": 1,
+        "height": 450,
+        "width": 299,
+        "price": 18.95,
+        "rating": 3
+      },
+      {
+        "id": 5,
+        "product_name": "Raw legums",
+        "product_category": "vegetable",
+        "product_description": "Raw legums on the wooden table",
+        "units_available": 1,
+        "height": 450,
+        "width": 299,
+        "price": 17.11,
+        "rating": 2
+      },
+      {
+        "id": 11,
+        "product_name": "Homemade bread",
+        "product_category": "bakery",
+        "product_description": "Homemade bread",
+        "units_available": 1,
+        "height": 450,
+        "width": 301,
+        "price": 17.48,
+        "rating": 3
+      }
+    ],
+    [
+      {
+        "id": 1,
+        "product_name": "Brown eggs",
+        "product_category": "dairy",
+        "product_description": "Raw organic brown eggs in a basket",
+        "units_available": 1,
+        "height": 600,
+        "width": 400,
+        "price": 28.1,
+        "rating": 4
+      },
+      {
+        "id": 3,
+        "product_name": "Asparagus",
+        "product_category": "vegetable",
+        "product_description": "Asparagus with ham on the wooden table",
+        "units_available": 1,
+        "height": 450,
+        "width": 299,
+        "price": 18.95,
+        "rating": 3
+      },
+      {
+        "id": 2,
+        "product_name": "Sweet fresh stawberry",
+        "product_category": "fruit",
+        "product_description": "Sweet fresh stawberry on the wooden table",
+        "units_available": 1,
+        "height": 450,
+        "width": 299,
+        "price": 29.45,
+        "rating": 4
       }
     ]
   ]

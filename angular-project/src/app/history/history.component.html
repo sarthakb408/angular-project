@@ -1,0 +1,16 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of receiveHistoryData,let i = index ">
+        <th scope="row">{{i+1}}</th>
+        <td>{{r.product_name}}</td>
+        <td>{{r.price}}</td>
+      </tr>
+    </tbody>
+  </table>

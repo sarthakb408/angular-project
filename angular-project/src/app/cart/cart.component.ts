@@ -13,14 +13,17 @@ export class CartComponent implements OnInit {
   constructor(public ht: DataManipulationService, private modalService: NgbModal, private router: Router) { }
 
   receiveCartItems:any;
+  index:any;
   ngOnInit(): void {
     this.ht.getCartitems().subscribe((data) => this.show(data));
   }
 
-  removeItem(data:any){
+  removeItem(data:any, i:any){
+    this.index = i;
     console.log(data);
     this.ht.deleteCartitems(data.id).subscribe();
     this.modalService.dismissAll();
+    this.receiveCartItems.splice(this.index, 1);
   }
 
   show(data: any) {

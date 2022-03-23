@@ -11,7 +11,7 @@ export class AppComponent {
   title = 'angular-project';
   photo = 'https://www.emodal.com/images/hero-banner.png';
 
-  constructor(private ht:DataManipulationService,private router:Router) { }
+  constructor(public ht:DataManipulationService,private router:Router) { }
 
   ngOnInit(): void {
     if(this.ht.isLogedIn)

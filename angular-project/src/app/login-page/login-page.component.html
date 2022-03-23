@@ -1,17 +1,17 @@
 <div id="sect1">
     <div class="content" >
      <div class="text">Login Form</div>
-      <form action="#">
+      <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)">
         <div class="field">
           <span class="fa fa-user"></span>
-          <input type="text" placeholder="Email Id" required>
+          <input type="text" placeholder="Email Id" formControlName="username" required>
        
         </div>
         <div class="field">
           <span class="fa fa-lock"></span>
-          <input type="password" placeholder="Password">
+          <input type="password" placeholder="Password" formControlName="password">
         </div>
-        <button (click)="login()" >Log in</button>
+        <button [disabled]="!loginForm.valid">Log in</button>
         <div class="or">Or</div>
         <div class="icon-button">  
           <span class="facebook"><i class="fa fa-facebook"></i>  Facebook</span>
@@ -23,3 +23,5 @@
     <div class="container"><img class="emodal-logo" src="assets\images\emodal-logo.png" alt="">
     </div>
     <img class="background-image " src="\assets\images\background-image.png" alt="">
+
+    <app-loader *ngIf="flag"></app-loader>
